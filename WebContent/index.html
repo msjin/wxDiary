@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Basic Tree - jQuery EasyUI Demo</title>
+    
+    <link rel="stylesheet" type="text/css" href="static/jquery_easyui/themes/metro/easyui.css">
+    <link rel="stylesheet" type="text/css" href="static/jquery_easyui/themes/icon.css">
+    
+    <script type="text/javascript" src="static/js/jquery-1.8.2.max.js"></script>
+    <script type="text/javascript" src="static/jquery_easyui/jquery.easyui.min.js"></script>
+    <script type="text/javascript">
+    $(function(){ 
+    	$('#td').dialog({ 
+    	toolbar:[{ 
+    	text:'添加', 
+    	iconCls:'icon-add', 
+    	handler:function(){ 
+    	alert('添加数据') 
+    	} 
+    	},'-',{ 
+    	text:'保存', 
+    	iconCls:'icon-save', 
+    	handler:function(){ 
+    	alert('保存数据') 
+    	} 
+    	}], 
+    	buttons:[{ 
+    	text:'提交', 
+    	iconCls:'icon-ok', 
+    	handler:function(){ 
+    	alert('提交数据'); 
+    	} 
+    	},{ 
+    	text:'取消', 
+    	handler:function(){ 
+    	$('#dd').dialog('取消'); 
+    	} 
+    	}] 
+    	}); 
+    	}); 
+
+    </script>
+</head>
+<body>
+    <h2>Basic Layout</h2>
+    <div class="demo-info">
+        <div class="demo-tip icon-tip"></div>
+        <div>The layout contains north,south,west,east and center regions.</div>
+    </div>
+    <div style="margin:10px 0;"></div>
+    <div class="easyui-layout" style="width: 1000px;height: 500px;">
+        <div data-options="region:'north'" style="height:50px"></div>
+        <div data-options="region:'south'" style="height:100px;"></div>
+        <div data-options="region:'east'" title="East" style="width:180px;"></div>
+        <div data-options="region:'west'" title="West" style="width:200px;"></div>
+        <div data-options="region:'center'">
+        	<div class="easyui-tabs" fit="true" border="false" id="tabs">
+	      		<div title="首页">
+		            <table class="easyui-datagrid"
+		                    data-options="url:'datagrid_data1.json',method:'get',border:false,singleSelect:true,fit:true,fitColumns:true"
+		                    toolbar="#toolbar">		                    
+		                <thead>
+		                    <tr>
+		                        <th data-options="field:'itemid'" width="80">Item ID</th>
+		                        <th data-options="field:'productid'" width="100">Product ID</th>
+		                        <th data-options="field:'listprice',align:'right'" width="80">List Price</th>
+		                        <th data-options="field:'unitcost',align:'right'" width="80">Unit Cost</th>
+		                        <th data-options="field:'attr'" width="150">Attribute</th>
+		                        <th data-options="field:'status',align:'center'" width="50">Status</th>
+		                    </tr>
+		                </thead>
+		            </table>
+		            <table id="dg" title="My Users" class="easyui-datagrid"
+						style="width: 700px; height: 250px" url="get_users.php"
+						toolbar="#toolbar" pagination="true" rownumbers="true"
+						fitColumns="true" singleSelect="true">
+						<thead>
+							<tr>
+								<th field="firstname" width="50">First Name</th>
+								<th field="lastname" width="50">Last Name</th>
+								<th field="phone" width="50">Phone</th>
+								<th field="email" width="50">Email</th>
+							</tr>
+						</thead>
+					</table>
+		            <div id="toolbar">   
+				     	<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newUser()">New User</a>    
+				        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editUser()">Edit User</a>    
+				        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyUser()">Remove User</a> 
+				     </div>
+	            </div>
+	            <div title="tab2"></div>
+            </div>
+        </div>
+    </div>
+    
+    
+ 
+</body>
+</html>
